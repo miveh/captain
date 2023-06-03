@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mafia_role/Consts/colors.dart';
 
 import '../../Controllers/Home/home_controller.dart';
 import 'Widgets/build_main_grid_view_widget.dart';
@@ -17,31 +18,11 @@ class HomeScreen extends StatelessWidget {
         height: Get.height,
         width: Get.width,
         decoration: BoxDecoration(
-          color: Colors.red.shade900,
+          color: mainBgColor,
         ),
         child: Column(
           children: [
             _buildHeader(),
-            SizedBox(
-              height: Get.height * .04,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Lottie.asset(
-                  'assets/anims/coin.json',
-                  height: Get.width * .1,
-                  width: Get.width * .1,
-                ),
-                const Text(
-                  '0  : امتیاز شما ',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'koodak',
-                  ),
-                ),
-              ],
-            ),
             // SizedBox(),
             BuildMainGridViewWidget(
               controller: controller,
@@ -55,8 +36,35 @@ class HomeScreen extends StatelessWidget {
   Widget _buildHeader() {
     return Container(
       width: Get.width,
-      height: Get.height * .25,
-      color: Colors.white,
+      height: Get.height * .2,
+      color: mainBgColor,
+      child: Row(
+        children: [
+          Hero(
+            tag: 'CaptainAnimation',
+            child: SizedBox(
+              height: Get.height * .4,
+              width: Get.width/2,
+              child: Lottie.asset(
+                'assets/anims/mafiaLogo.json',
+              ),
+            ),
+          ),
+          SizedBox(
+            height: Get.height * .4,
+            width: Get.width/2,
+            child: const Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('MohammadReza Soltani'),
+                Text('Designed By: Hossein Khosravi'),
+                Text('Developed By: AliRn.ir'),
+              ],
+            ),
+          ),
+        ],
+      )
     );
   }
 }

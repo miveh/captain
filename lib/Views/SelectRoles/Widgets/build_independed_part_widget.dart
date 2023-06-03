@@ -37,7 +37,7 @@ class BuildIndependentPartWidget extends StatelessWidget {
   _getChip({required RolesModel role}) {
     return AnimationConfiguration.synchronized(
       child: SlideAnimation(
-        duration: Duration(milliseconds: 200),
+        duration: const Duration(milliseconds: 200),
         child: FadeInAnimation(
           child: Obx(
             () => GestureDetector(

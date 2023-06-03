@@ -6,6 +6,8 @@ import 'package:mafia_role/Consts/measures.dart';
 import 'package:mafia_role/Controllers/Home/home_controller.dart';
 import 'package:mafia_role/Utils/view_utils.dart';
 
+import '../../../Consts/colors.dart';
+
 class PlayerCountWidgetDialog extends StatelessWidget {
   const PlayerCountWidgetDialog({Key? key, required this.controller})
       : super(key: key);
@@ -21,7 +23,7 @@ class PlayerCountWidgetDialog extends StatelessWidget {
         color: Colors.white,
         borderRadius: radiusAll24,
         border: Border.all(
-          color: Colors.red.shade900,
+          color: secondColor,
           width: 3.0,
         ),
       ),
@@ -37,9 +39,8 @@ class PlayerCountWidgetDialog extends StatelessWidget {
           Obx(
             () => Slider(
               min: 0.0,
-              thumbColor: const Color(0xffDB8686),
-              // activeColor: const Color(0xffEE3F6C),
-              activeColor: Colors.red.shade900,
+              thumbColor: secondColorLight,
+              activeColor: secondColor,
               inactiveColor: Colors.white,
               divisions: 40,
               max: 40.0,
@@ -127,7 +128,7 @@ class PlayerCountWidgetDialog extends StatelessWidget {
                         height: double.maxFinite,
                         width: double.maxFinite,
                         decoration: BoxDecoration(
-                          color: Colors.red.shade900,
+                          color: secondColor,
                           borderRadius: radiusAll8,
                           boxShadow: shadow(),
                         ),

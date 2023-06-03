@@ -27,7 +27,7 @@ class PageRout {
       name: NameRouts.home,
       page: () => HomeScreen(),
       transition: Transition.size,
-      transitionDuration: const Duration(milliseconds: 500)
+      transitionDuration: const Duration(milliseconds: 3000)
     ),
     GetPage(
       name: NameRouts.selectRoles,

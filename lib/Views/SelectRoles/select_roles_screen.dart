@@ -27,6 +27,7 @@ class SelectRolesScreen extends StatelessWidget {
               SizedBox(
                 height: Get.height * .03,
               ),
+
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(

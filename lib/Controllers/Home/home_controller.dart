@@ -8,7 +8,7 @@ import '../../Views/Home/Widgets/player_count_widget_dialog.dart';
 class HomeController extends GetxController {
 
 
-  RxDouble playerCount = 7.0.obs;
+  RxDouble playerCount = 4.0.obs;
 
 
 
@@ -20,37 +20,12 @@ class HomeController extends GetxController {
     ),
     CategoryModel(
       id: 1,
-      title: 'بازی من',
-      isSelected: false.obs,
-    ),
-    CategoryModel(
-      id: 2,
       title: 'مافیا تلویزیون',
       isSelected: false.obs,
     ),
     CategoryModel(
-      id: 3,
+      id: 2,
       title: 'مافیا فیلیمو',
-      isSelected: false.obs,
-    ),
-    CategoryModel(
-      id: 4,
-      title: 'نقش های کاربران',
-      isSelected: false.obs,
-    ),
-    CategoryModel(
-      id: 5,
-      title: 'جاسوس',
-      isSelected: false.obs,
-    ),
-    CategoryModel(
-      id: 6,
-      title: 'آموزش',
-      isSelected: false.obs,
-    ),
-    CategoryModel(
-      id: 7,
-      title: 'به زودی ...',
       isSelected: false.obs,
     ),
   ];
@@ -61,16 +36,26 @@ class HomeController extends GetxController {
     required int id,
   }) {
     switch (id) {
+      case 0:
+        {
+          showPlayerCountDialog(6.0);
+          break;
+        }
       case 1:
         {
-          showPlayerCountDialog();
+          showPlayerCountDialog(7.0);
+          break;
+        }
+      case 2:
+        {
+          showPlayerCountDialog(8.0);
           break;
         }
     }
   }
 
-  void showPlayerCountDialog() async {
-    playerCount(7.0);
+  void showPlayerCountDialog(double count) async {
+    playerCount(count);
     var goNext = await showDialog(
       context: Get.context!,
       barrierDismissible: true,
@@ -98,7 +83,7 @@ class HomeController extends GetxController {
   void changePosition({
     required double newPosition,
   }) {
-    if(newPosition >= 7 ){
+    if(newPosition >= 4 ){
       playerCount(newPosition);
     }
   }

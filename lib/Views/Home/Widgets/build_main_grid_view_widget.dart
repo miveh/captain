@@ -4,6 +4,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:mafia_role/Consts/measures.dart';
 import 'package:mafia_role/Models/Category/category_model.dart';
 
+import '../../../Consts/colors.dart';
 import '../../../Controllers/Home/home_controller.dart';
 
 class BuildMainGridViewWidget extends StatelessWidget {
@@ -15,23 +16,26 @@ class BuildMainGridViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: SizedBox(
-        height: double.maxFinite,
-        width: double.maxFinite,
-        child: GridView.builder(
-          physics: const BouncingScrollPhysics(),
-          shrinkWrap: true,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: (1 / .7),
+      child: Container(
+        color: secondColorLight,
+        child: SizedBox(
+          height: double.maxFinite,
+          width: double.maxFinite,
+          child: GridView.builder(
+            physics: const BouncingScrollPhysics(),
+            shrinkWrap: true,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 1,
+              childAspectRatio: (1 / .4),
+            ),
+            itemBuilder: (_, index) => _buildCategoryItem(
+              category: controller.categoryList[index],
+              index: index,
+            ),
+            itemCount: controller.categoryList.length,
           ),
-          itemBuilder: (_, index) => _buildCategoryItem(
-            category: controller.categoryList[index],
-            index: index,
-          ),
-          itemCount: controller.categoryList.length,
         ),
-      ),
+      )
     );
   }
 
@@ -41,7 +45,7 @@ class BuildMainGridViewWidget extends StatelessWidget {
   }) {
     return AnimationConfiguration.synchronized(
       child: SlideAnimation(
-        duration: Duration(milliseconds: (index * 200)),
+        duration: Duration(milliseconds: (index * 1000)),
         child: FadeInAnimation(
           child: InkWell(
             onTap: (){

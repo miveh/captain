@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../Consts/colors.dart';
 import '../../Controllers/Splash/splash_controller.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -14,25 +15,28 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          color: Colors.red.shade900,
+          color: mainBgColor,
         ),
         height: Get.height,
         width: Get.width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              height: Get.height * .4,
-              width: Get.width,
-              child: Lottie.asset(
-                'assets/anims/mafiaLogo.json',
+            Hero(
+              tag: 'CaptainAnimation',
+              child: SizedBox(
+                height: Get.height * .4,
+                width: Get.width,
+                child: Lottie.asset(
+                  'assets/anims/mafiaLogo.json',
+                ),
               ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'TEHRAN',
+                  'Captain',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 32.0,

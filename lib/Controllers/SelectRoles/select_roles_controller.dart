@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:mafia_role/Consts/fakeData.dart';
 import 'package:mafia_role/Models/Roles/roles_model.dart';
 import 'package:mafia_role/Utils/rout_utils.dart';
@@ -7,7 +6,8 @@ import 'package:mafia_role/Utils/rout_utils.dart';
 class SelectRolesController extends GetxController {
   RxInt playerCount = 0.obs;
   int player = 0;
-  int citizenPlayer = 0;
+  int goodRoles = 0;
+  int badRoles = 0;
 
   List<RolesModel> selectedRolesList = [];
 
@@ -20,7 +20,10 @@ class SelectRolesController extends GetxController {
   void initData() async {
     playerCount.value = Get.arguments['playerCount'];
     player = playerCount.value;
-    citizenPlayer = player - (player / 100 * 30).toInt();
+
+    badRoles = (player * 0.3).toInt();
+    goodRoles = player - badRoles;
+
     for (var o in rolesList) {
       o.isSelected(false);
     }
@@ -29,27 +32,39 @@ class SelectRolesController extends GetxController {
   void checkRole({
     required RolesModel role,
   }) {
-    int mafiaPlayer =
-        selectedRolesList.where((element) => element.role == 0).toList().length;
+    // Unselected
     if (role.isSelected.isTrue) {
       role.isSelected(false);
       playerCount.value++;
       selectedRolesList.remove(role);
+
+      // Undo it
+      if (role.role == 1){
+        goodRoles ++;
+      }else{
+        badRoles ++;
+      }
+
+    // Selected
     } else {
-      if (playerCount.value > 0) {
-        if (role.role == 0) {
-          if (mafiaPlayer <= (player / 100 * 30).toInt()) {
-            role.isSelected(true);
-            playerCount.value--;
-            selectedRolesList.add(role);
-          }
-        } else {
-          if (citizenPlayer != 0) {
-            citizenPlayer--;
-            role.isSelected(true);
-            playerCount.value--;
-            selectedRolesList.add(role);
-          }
+      if (playerCount.value == 0) return;
+
+      // If it was citizen
+      if (role.role == 1) {
+        if (goodRoles > 0){
+          role.isSelected(true);
+          goodRoles --;
+          playerCount.value--;
+          selectedRolesList.add(role);
+        }
+      }
+      // It was mafia
+      else{
+        if (badRoles > 0){
+          role.isSelected(true);
+          badRoles --;
+          playerCount.value--;
+          selectedRolesList.add(role);
         }
       }
     }
