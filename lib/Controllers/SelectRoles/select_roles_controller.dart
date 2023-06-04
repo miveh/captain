@@ -21,7 +21,7 @@ class SelectRolesController extends GetxController {
     playerCount.value = Get.arguments['playerCount'];
     player = playerCount.value;
 
-    badRoles = (player * 0.3).toInt();
+    badRoles = player ~/ 3;
     goodRoles = player - badRoles;
 
     for (var o in rolesList) {
@@ -39,33 +39,33 @@ class SelectRolesController extends GetxController {
       selectedRolesList.remove(role);
 
       // Undo it
-      if (role.role == 1){
-        goodRoles ++;
-      }else{
-        badRoles ++;
+      if (role.role == 1) {
+        goodRoles++;
+      } else {
+        badRoles++;
       }
+      return;
+    }
 
     // Selected
-    } else {
-      if (playerCount.value == 0) return;
+    if (playerCount.value == 0) return;
 
-      // If it was citizen
-      if (role.role == 1) {
-        if (goodRoles > 0){
-          role.isSelected(true);
-          goodRoles --;
-          playerCount.value--;
-          selectedRolesList.add(role);
-        }
+    // If it was citizen
+    if (role.role == 1) {
+      if (goodRoles > 0) {
+        role.isSelected(true);
+        goodRoles--;
+        playerCount.value--;
+        selectedRolesList.add(role);
       }
-      // It was mafia
-      else{
-        if (badRoles > 0){
-          role.isSelected(true);
-          badRoles --;
-          playerCount.value--;
-          selectedRolesList.add(role);
-        }
+    }
+    // It was mafia
+    else {
+      if (badRoles > 0) {
+        role.isSelected(true);
+        badRoles--;
+        playerCount.value--;
+        selectedRolesList.add(role);
       }
     }
   }

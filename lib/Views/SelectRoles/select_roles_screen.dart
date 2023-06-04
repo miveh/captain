@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:mafia_role/Consts/measures.dart';
 import 'package:mafia_role/Utils/view_utils.dart';
 import 'package:mafia_role/Views/SelectRoles/Widgets/build_citizen_part_widget.dart';
+import '../../Consts/colors.dart';
 import '../../Controllers/SelectRoles/select_roles_controller.dart';
 import 'Widgets/build_independed_part_widget.dart';
 import 'Widgets/build_mafia_part_widget.dart';
@@ -19,7 +20,7 @@ class SelectRolesScreen extends StatelessWidget {
         height: Get.height,
         width: Get.width,
         decoration: BoxDecoration(
-          color: Colors.red.shade900,
+          color: secondColorLight,
         ),
         child: SafeArea(
           child: Column(
@@ -39,13 +40,13 @@ class SelectRolesScreen extends StatelessWidget {
                       },
                       child: const Icon(
                         Icons.arrow_back_ios_rounded,
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                     ),
                     const Text(
                       'انتخاب نقش ها',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 20.0,
                         fontFamily: 'koodak',
                       ),
@@ -58,7 +59,7 @@ class SelectRolesScreen extends StatelessWidget {
                               },
                               child: const Icon(
                                 Icons.check,
-                                color: Colors.white,
+                                color: Colors.black,
                               ),
                             )
                           : Text(
@@ -66,7 +67,7 @@ class SelectRolesScreen extends StatelessWidget {
                                 number: controller.playerCount.value.toString(),
                               ),
                               style: const TextStyle(
-                                color: Colors.white,
+                                color: Colors.black,
                                 fontSize: 16.0,
                                 fontFamily: 'koodak',
                               ),
@@ -121,16 +122,16 @@ class SelectRolesScreen extends StatelessWidget {
       height: Get.height * .05,
       margin: paddingSymmetricV20,
       decoration: BoxDecoration(
-        color: const Color(0XFF850000),
+        color: mainBgColor,
         boxShadow: shadow(offset: const Offset(0.0, 2.0)),
       ),
       child: Center(
         child: Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 16.0,
             fontFamily: 'koodak',
-            color: Colors.white.withOpacity(.85),
+            color: Colors.black,
           ),
         ),
       ),

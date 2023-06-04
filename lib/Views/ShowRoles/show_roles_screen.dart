@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
+import 'package:mafia_role/Consts/colors.dart';
 import 'package:mafia_role/Utils/view_utils.dart';
 
 import '../../Consts/measures.dart';
@@ -20,7 +21,7 @@ class ShowRolesScreen extends StatelessWidget {
         height: Get.height,
         width: Get.width,
         decoration: BoxDecoration(
-          color: Colors.red.shade900,
+          color: secondColorLight,
         ),
         child: SafeArea(
           child: Column(
@@ -39,22 +40,22 @@ class ShowRolesScreen extends StatelessWidget {
                       },
                       child: const Icon(
                         Icons.arrow_back_ios_rounded,
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                     ),
                     const Text(
                       'نمایش نقش ها',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 20.0,
                         fontFamily: 'koodak',
                       ),
                     ),
                     InkWell(
-                      onTap: () {},
-                      child: Icon(
-                        Icons.check,
-                        color: Colors.red.shade900,
+                      onTap: () => controller.refreshRoles(),
+                      child: const Icon(
+                        Icons.refresh,
+                        color: Colors.black,
                       ),
                     ),
                   ],
@@ -71,7 +72,7 @@ class ShowRolesScreen extends StatelessWidget {
                     children: <Widget>[..._generateTags()],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -81,7 +82,6 @@ class ShowRolesScreen extends StatelessWidget {
 
   _generateTags() {
     return controller.selectedRolesList
-        .where((element) => element.role == 1)
         .map((tag) => _getChip(role: tag))
         .toList();
   }
@@ -98,23 +98,25 @@ class ShowRolesScreen extends StatelessWidget {
                 controller.showRole(role: role);
               },
               child: Chip(
-                backgroundColor: Colors.red.shade900,
+                backgroundColor: secondColor,
                 avatar: (role.isShow.isTrue)
                     ? const Icon(
-                        Icons.remove_red_eye_outlined,
+                        Icons.remove_red_eye_rounded,
                         color: Colors.white24,
                       )
                     : const Icon(
-                        Icons.not_interested,
+                        Icons.remove_red_eye_outlined,
                         color: Colors.white,
                       ),
                 label: AutoSizeText(
-                  persianNumber(number: (role.id + 1).toString()),
+                  persianNumber(
+                      number: (controller.selectedRolesList.indexOf(role) + 1)
+                          .toString()),
                   maxFontSize: 20.0,
                   minFontSize: 12.0,
                   maxLines: 1,
                   style: TextStyle(
-                    color: (role.isShow.isTrue)?Colors.white24:Colors.white,
+                    color: (role.isShow.isTrue) ? Colors.white24 : Colors.white,
                     fontSize: 16.0,
                     fontFamily: 'koodak',
                   ),

@@ -17,7 +17,7 @@ class PlayerCountWidgetDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Get.height * .25,
+      height: Get.height * .27,
       width: Get.width,
       decoration: BoxDecoration(
         color: Colors.white,

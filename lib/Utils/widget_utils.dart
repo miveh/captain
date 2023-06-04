@@ -47,7 +47,7 @@ class WidgetUtils{
           hintStyle: TextStyle(
             fontSize:14.0,
             color: textRedColor.withOpacity(.5),
-            fontFamily: 'xKoodak',
+            fontFamily: 'koodak',
           ),
           enabled: enable,
           suffix: suffix,

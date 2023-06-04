@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
+import 'package:mafia_role/Consts/colors.dart';
 import 'package:mafia_role/Consts/fakeData.dart';
 import 'package:mafia_role/Consts/measures.dart';
 import 'package:mafia_role/Controllers/SelectRoles/select_roles_controller.dart';
@@ -46,7 +47,7 @@ class BuildCitizenPartWidget extends StatelessWidget {
                 controller.checkRole(role: role);
               },
               child: Chip(
-                backgroundColor: Colors.red.shade900,
+                backgroundColor: secondColor,
                 avatar: Checkbox(
                   onChanged: (bool? value) {
                     controller.checkRole(role: role);

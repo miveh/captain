@@ -4,6 +4,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 import 'package:mafia_role/Controllers/SelectRoles/select_roles_controller.dart';
 
+import '../../../Consts/colors.dart';
 import '../../../Consts/fakeData.dart';
 import '../../../Consts/measures.dart';
 import '../../../Models/Roles/roles_model.dart';
@@ -45,7 +46,7 @@ class BuildIndependentPartWidget extends StatelessWidget {
                 controller.checkRole(role: role);
               },
               child: Chip(
-                backgroundColor: Colors.red.shade900,
+                backgroundColor: secondColor,
                 avatar: Checkbox(
                   onChanged: (bool? value) {
                     controller.checkRole(role: role);

@@ -15,17 +15,17 @@ class HomeController extends GetxController {
   List<CategoryModel> categoryList = [
     CategoryModel(
       id: 0,
-      title: 'طهران مافیا',
+      title: 'شروع بازی',
       isSelected: false.obs,
     ),
     CategoryModel(
       id: 1,
-      title: 'مافیا تلویزیون',
+      title: 'مافیا تلویزیون  (به زودی)',
       isSelected: false.obs,
     ),
     CategoryModel(
       id: 2,
-      title: 'مافیا فیلیمو',
+      title: 'مافیا فیلیمو  (به زودی)',
       isSelected: false.obs,
     ),
   ];

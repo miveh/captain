@@ -35,4 +35,10 @@ class ShowRolesController extends GetxController {
       });
     }
   }
+
+  void refreshRoles(){
+    for (RolesModel role in selectedRolesList){
+      role.isShow(false);
+    }
+  }
 }
