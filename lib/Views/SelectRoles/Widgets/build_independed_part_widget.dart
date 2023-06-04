@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:mafia_role/Controllers/SelectRoles/select_roles_controller.dart';
 
 import '../../../Consts/colors.dart';
-import '../../../Consts/fakeData.dart';
+import '../../../Consts/rolesData.dart';
 import '../../../Consts/measures.dart';
 import '../../../Models/Roles/roles_model.dart';
 

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:mafia_role/Consts/fakeData.dart';
+import 'package:mafia_role/Consts/rolesData.dart';
 import 'package:mafia_role/Models/Roles/roles_model.dart';
 import 'package:mafia_role/Utils/rout_utils.dart';
 

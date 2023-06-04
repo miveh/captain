@@ -28,8 +28,12 @@ class HomeController extends GetxController {
       title: 'مافیا فیلیمو  (به زودی)',
       isSelected: false.obs,
     ),
+    CategoryModel(
+      id: 3,
+      title: 'نقش ها',
+      isSelected: false.obs,
+    ),
   ];
-
 
 
   void tapGame({
@@ -41,16 +45,21 @@ class HomeController extends GetxController {
           showPlayerCountDialog(6.0);
           break;
         }
-      case 1:
-        {
-          showPlayerCountDialog(7.0);
-          break;
-        }
-      case 2:
-        {
-          showPlayerCountDialog(8.0);
-          break;
-        }
+      // case 1:
+      //   {
+      //     showPlayerCountDialog(7.0);
+      //     break;
+      //   }
+      // case 2:
+      //   {
+      //     showPlayerCountDialog(8.0);
+      //     break;
+      //   }
+      // case 3:
+      //   {
+      //     showPlayerCountDialog(8.0);
+      //     break;
+      //   }
     }
   }
 
@@ -69,7 +78,6 @@ class HomeController extends GetxController {
         );
       },
     );
-
 
     if(goNext is bool && goNext){
       Get.toNamed(NameRouts.selectRoles , arguments: {
