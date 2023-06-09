@@ -26,7 +26,7 @@ class BuildMainGridViewWidget extends StatelessWidget {
             shrinkWrap: true,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 1,
-              childAspectRatio: (1 / .4),
+              childAspectRatio: (1 / .31),
             ),
             itemBuilder: (_, index) => _buildCategoryItem(
               category: controller.categoryList[index],

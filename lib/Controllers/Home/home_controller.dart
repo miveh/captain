@@ -8,7 +8,9 @@ import '../../Views/Home/Widgets/player_count_widget_dialog.dart';
 class HomeController extends GetxController {
 
 
-  RxDouble playerCount = 4.0.obs;
+  RxDouble playerCount = 5.0.obs;
+
+  RxDouble tvMafiaCount = 5.0.obs;
 
 
 
@@ -31,6 +33,11 @@ class HomeController extends GetxController {
     CategoryModel(
       id: 3,
       title: 'نقش ها',
+      isSelected: false.obs,
+    ),
+    CategoryModel(
+      id: 4,
+      title: 'گردآورندگان',
       isSelected: false.obs,
     ),
   ];
@@ -56,6 +63,11 @@ class HomeController extends GetxController {
       //     break;
       //   }
       // case 3:
+      //   {
+      //     showPlayerCountDialog(8.0);
+      //     break;
+      //   }
+      // case 4:
       //   {
       //     showPlayerCountDialog(8.0);
       //     break;
@@ -91,7 +103,7 @@ class HomeController extends GetxController {
   void changePosition({
     required double newPosition,
   }) {
-    if(newPosition >= 4 ){
+    if(newPosition >= 5 ){
       playerCount(newPosition);
     }
   }

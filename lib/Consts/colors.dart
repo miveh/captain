@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 
-Color mainBgColor = Colors.lightBlueAccent.shade100;
-Color secondColorLight = Colors.greenAccent.shade100;
-Color secondColor = Colors.green.shade600;
+Color mainBgColor = const Color(0xff5F264A);
+Color secondColor = const Color(0xff643A6B);
+Color secondColorLight = const Color(0xff957777);
 
 Color textRedColor = const Color(0xffAC3F44);

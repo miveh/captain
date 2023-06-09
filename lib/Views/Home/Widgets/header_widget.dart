@@ -20,59 +20,23 @@ class MainHeaderWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Row(
             children: [
-              Hero(
-                tag: 'CaptainMafia',
-                child: Column(
-                  children: [
-                    SizedBox(height: Get.height * .03),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Captain',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.0,
-                          ),
-                        ),
-                        SizedBox(
-                          width: Get.width * .02,
-                        ),
-                        const Text(
-                          'MAFIA',
-                          style: TextStyle(
-                            fontSize: 16.0,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+              const Text(
+                'Captain',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18.0,
                 ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Creators:',
-                    style: TextStyle(
-                      fontSize: 8.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 2.0),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      _buildName(firstName: 'MohammadReza', lastName: 'Soltani'),
-                      const SizedBox(width: 10.0),
-                      _buildName(firstName: 'Hossein', lastName: 'Khosravi'),
-                    ],
-                  ),
-                  const SizedBox(height: 1.0),
-                ],
+              SizedBox(
+                width: Get.width * .02,
+              ),
+              const Text(
+                'MAFIA',
+                style: TextStyle(
+                  fontSize: 16.0,
+                ),
               ),
             ],
           ),
@@ -88,30 +52,6 @@ class MainHeaderWidget extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildName({required String firstName, required String lastName}) {
-    return Row(
-      children: [
-        Text(
-          firstName,
-          style: const TextStyle(
-            fontSize: 8.0,
-          ),
-        )
-        ,
-        const SizedBox(
-          width: 2.0,
-        ),
-        Text(
-          lastName,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 8.0,
-          ),
-        )
-      ],
     );
   }
 }

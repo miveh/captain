@@ -32,29 +32,26 @@ class SplashScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Hero(
-                tag: 'CaptainMafia',
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Captain',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 32.0,
-                      ),
-                    ),
-                    SizedBox(
-                      width: Get.width * .02,
-                    ),
-                    const Text(
-                      'MAFIA',
-                      style: TextStyle(
-                        fontSize: 22.0,
-                      ),
-                    ),
-                  ],
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'Captain',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 32.0,
+                  ),
                 ),
+                SizedBox(
+                  width: Get.width * .02,
+                ),
+                const Text(
+                  'MAFIA',
+                  style: TextStyle(
+                    fontSize: 22.0,
+                  ),
+                ),
+              ],
             ),
           ],
         ),

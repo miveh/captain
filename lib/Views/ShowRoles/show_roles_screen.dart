@@ -36,6 +36,7 @@ class ShowRolesScreen extends StatelessWidget {
                   children: [
                     InkWell(
                       onTap: () {
+                        controller.refreshRoles();
                         Get.back();
                       },
                       child: const Icon(
@@ -51,13 +52,13 @@ class ShowRolesScreen extends StatelessWidget {
                         fontFamily: 'koodak',
                       ),
                     ),
-                    InkWell(
-                      onTap: () => controller.refreshRoles(),
-                      child: const Icon(
-                        Icons.refresh,
-                        color: Colors.black,
-                      ),
-                    ),
+                    // InkWell(
+                    //   onTap: () => controller.refreshRoles(),
+                    //   child: const Icon(
+                    //     Icons.refresh,
+                    //     color: Colors.black,
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

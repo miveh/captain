@@ -1,12 +1,10 @@
-import 'dart:io';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mafia_role/Consts/measures.dart';
 import 'package:mafia_role/Models/Roles/roles_model.dart';
 
-import '../../../Consts/colors.dart';
+import '../../../Utils/view_utils.dart';
 
 class ShowRoleContentAlert extends StatelessWidget {
   const ShowRoleContentAlert({Key? key, required this.role}) : super(key: key);
@@ -22,7 +20,9 @@ class ShowRoleContentAlert extends StatelessWidget {
         color: Colors.white,
         border: Border.all(
           width: 4.0,
-          color: role.role != 0 ? secondColorLight : Colors.redAccent.shade200,
+          color: role.role != 0
+              ? Colors.greenAccent.shade200
+              : Colors.redAccent.shade200,
         ),
         borderRadius: radiusAll16,
       ),
@@ -40,18 +40,11 @@ class ShowRoleContentAlert extends StatelessWidget {
               shadows: shadow(),
             ),
           ),
-          File("assets/images/${role.title}.jpg").existsSync()
-              // This is the real one, remove the second one
-              ? SizedBox(
-                  width: Get.width * 0.6,
-                  height: Get.width * 0.6,
-                  child: Image.asset("assets/images/${role.title}.jpg"),
-                )
-              : SizedBox(
-                  width: Get.width * 0.6,
-                  height: Get.width * 0.6,
-                  child: Image.asset("assets/images/${role.title}.jpg"),
-                ),
+          SizedBox(
+            width: Get.width * 0.5,
+            height: Get.width * 0.5,
+            child: Image.asset("assets/images/${role.title}.jpg"),
+          ),
           SizedBox(
             height: Get.height * .03,
           ),
@@ -77,9 +70,14 @@ class ShowRoleContentAlert extends StatelessWidget {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      const Divider(
-                        height: 10.0,
-                        thickness: 1.0,
+                      Text(
+                        ':نکته ${persianNumber(
+                          number: (index + 1).toString(),
+                        )}',
+                        style: const TextStyle(
+                          fontSize: 12.0,
+                          fontFamily: 'koodak',
+                        ),
                       ),
                       Text(
                         role.options[index],
@@ -88,7 +86,8 @@ class ShowRoleContentAlert extends StatelessWidget {
                           fontSize: 14.0,
                           fontFamily: 'koodak',
                         ),
-                      )
+                      ),
+                      const SizedBox(height: 10.0),
                     ],
                   );
                 },

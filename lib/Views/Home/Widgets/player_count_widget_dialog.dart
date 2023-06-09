@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:mafia_role/Consts/measures.dart';
 import 'package:mafia_role/Controllers/Home/home_controller.dart';
@@ -43,7 +42,7 @@ class PlayerCountWidgetDialog extends StatelessWidget {
               activeColor: secondColor,
               inactiveColor: Colors.white,
               divisions: 40,
-              max: 40.0,
+              max: 100.0,
               label: controller.playerCount.value.toInt().toString(),
               value: controller.playerCount.value,
               onChanged: (value) async {

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,6 +17,7 @@ class ShowRolesController extends GetxController {
 
   void initData() {
     selectedRolesList = Get.arguments['rolesList'];
+    selectedRolesList.shuffle();
   }
 
   void showRole({
@@ -40,5 +43,6 @@ class ShowRolesController extends GetxController {
     for (RolesModel role in selectedRolesList){
       role.isShow(false);
     }
+    selectedRolesList.shuffle(Random());
   }
 }

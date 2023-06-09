@@ -31,31 +31,6 @@ class HomeScreen extends StatelessWidget {
               BuildMainGridViewWidget(
                 controller: controller,
               ),
-              const Padding(
-                padding: EdgeInsetsDirectional.symmetric(
-                    horizontal: 0.0, vertical: 2.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Developed by',
-                      style: TextStyle(
-                        fontSize: 10.0,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5.0,
-                    ),
-                    Text(
-                      'AliRn.ir',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12.0,
-                      ),
-                    ),
-                  ],
-                ),
-              )
             ],
           ),
         ),
