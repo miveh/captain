@@ -8,6 +8,7 @@ class SelectRolesController extends GetxController {
   int player = 0;
   int goodRoles = 0;
   int badRoles = 0;
+  int citizenCount = 0;
 
   List<RolesModel> selectedRolesList = [];
 
@@ -36,10 +37,18 @@ class SelectRolesController extends GetxController {
     if (role.isSelected.isTrue) {
       role.isSelected(false);
       playerCount.value++;
-      selectedRolesList.remove(role);
 
+      selectedRolesList.remove(role);
       // Undo it
       if (role.role == 1) {
+        // If it was شهروند ساده
+        if (role.title == 'شهروند ساده') {
+          playerCount.value = playerCount.value + citizenCount - 1;
+          citizenCount = 0;
+          for (var i = 0; i < citizenCount - 1; i++) {
+            selectedRolesList.remove(role);
+          }
+        }
         goodRoles++;
       } else {
         badRoles++;
@@ -50,13 +59,36 @@ class SelectRolesController extends GetxController {
     // Selected
     if (playerCount.value == 0) return;
 
-    // If it was citizen
     if (role.role == 1) {
-      if (goodRoles > 0) {
+      // If it was citizen
+      if (goodRoles > 0 || citizenCount > 1) {
         role.isSelected(true);
-        goodRoles--;
-        playerCount.value--;
-        selectedRolesList.add(role);
+
+        if (role.title == 'شهروند ساده') {
+          citizenCount = goodRoles;
+          goodRoles = 0;
+          playerCount.value = playerCount.value - citizenCount;
+          for (var i = 0; i < citizenCount; i++) {
+            RolesModel newRole = RolesModel(
+              id: role.id + 100,
+              role: role.role,
+              title: role.title,
+              description: role.description,
+              options: role.options,
+              isSelected: true.obs,
+              isShow: false.obs,
+            );
+            selectedRolesList.add(newRole);
+          }
+        } else {
+          if (goodRoles == 0) {
+            citizenCount--;
+          } else {
+            goodRoles--;
+          }
+          playerCount.value--;
+          selectedRolesList.add(role);
+        }
       }
     }
     // It was mafia
